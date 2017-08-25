@@ -17,8 +17,9 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='emacsclient -t'
+export ALTERNATE_EDITOR=''
+export VISUAL='emacsclient -c'
 export PAGER='less'
 
 #
@@ -26,7 +27,7 @@ export PAGER='less'
 #
 
 if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
+  export LANG='en_GB.UTF-8'
 fi
 
 #
@@ -43,9 +44,13 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ~/.local/bin
   /usr/local/{bin,sbin}
   $path
 )
+
+# Inform beast2 where to find its libraries
+export BEAST=~/.local/
 
 #
 # Less
